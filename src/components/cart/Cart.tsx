@@ -75,7 +75,7 @@ export const Cart = () => {
 const ShoppingCartBody = () => {
   const cats = useAppSelector((state) => state.app.cats);
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} item xs={12}>
       {cats.map((c) => (
         <CartItem key={c.id} cat={c} />
       ))}
