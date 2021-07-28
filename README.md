@@ -18,6 +18,12 @@ yarn
 yarn start
 ```
 
+## Technology
+
+- NextJS - react/typescript framework
+- Material UI - styles
+- Redux (Toolkit) - state management
+
 ## Features
 
 ### Frontend
