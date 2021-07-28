@@ -45,6 +45,7 @@ export const CartItem = ({ cat }: CartItemProps) => {
         <Grid item sm={3}>
           <Image
             src={cat.image}
+            alt={cat.name}
             width="100px"
             height="100px"
             layout="responsive"
