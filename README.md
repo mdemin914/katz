@@ -1,6 +1,10 @@
 # Adopting Cats
 
-A simple application that allows you to adopt cats.
+A simple application using [NextJS](https://nextjs.org/) that allows you to add cats to a cart.
+
+## Demo
+
+The app is deployed to vercel. See it [here](https://katz-mdemin914.vercel.app/).
 
 ## Install
 
@@ -14,6 +18,28 @@ yarn
 yarn start
 ```
 
+## Features
+
+### Frontend
+
+- Fetch cats
+- Render cats in a grid
+- Add cat to Cart
+- Remove cat from Cart
+- Show a cart
+  - clear the cart
+  - show the cart total
+
+### Backend
+
+- /api/cat
+  - fetch all the cats from the mock endpoint
+- /api/cats/filter
+  - filter the cats based on
+  - if the price is greater than the GTE param
+  - if the price is less than the LTE param
+  - if the cat name is contains the name param
+
 ## Testing
 
 I am a fan of end to end testing using a tool like Cypress.io, its a JS based solution that is a better version of Selenium. I would write a few positive and negative test cases that would cover the basic flows of the application. I would setup the deployment pipleline to run the test suite on a merge request into the production / staging branches and not deploy the app if any (or an acceptable percentage of test fail, sometimes tests are flaky and are false positives).
@@ -26,7 +52,7 @@ For this app I would test the following:
 - Clearing the cart
 - Opening the shopping cart and making sure that the total is what I expect for X cats.
 
-As the application grows, having end to end test makes refactoring easier and as new people join they can feel confident that they did not break major functionality upon committing something. You just have to be disciplined to maintain good tests and establish a proper framework to generate test data.
+As the application grows, having end to end test makes refactoring easier and as new people join they can feel confident that they did not break major functionality upon committing something. You just have to be disciplined to maintain good tests and establish a proper framework to generate test data and ensure everyone is writing and running the tests.
 
 ## More Filtering
 
