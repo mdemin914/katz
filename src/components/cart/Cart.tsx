@@ -16,7 +16,7 @@ import { formatCurrency } from "../../utils/numbers";
 
 const useStyles = makeStyles({
   root: {
-    width: 340,
+    width: "100%",
   },
   total: {
     marginLeft: 78,
@@ -42,6 +42,7 @@ export const Cart = () => {
       open={isCartVisible}
       onClose={handleClose}
       aria-labelledby="shopping-cart"
+      className={classes.root}
     >
       <DialogTitle>Your Future Cats</DialogTitle>
       <DialogContent className={classes.root}>
