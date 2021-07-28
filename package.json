@@ -1,0 +1,32 @@
+{
+  "name": "nextjs",
+  "version": "4.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^4.11.2",
+    "@reduxjs/toolkit": "^1.6.1",
+    "add": "^2.0.6",
+    "clsx": "latest",
+    "next": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-query": "^3.19.1",
+    "react-redux": "^7.2.4",
+    "yarn": "^1.22.11"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "eslint": "^7.31.0",
+    "eslint-config-next": "^11.0.1",
+    "typescript": "^4.3.5"
+  }
+}
