@@ -1,4 +1,10 @@
-import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
+import {
+  Button,
+  Grid,
+  makeStyles,
+  Tooltip,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
 import { CatType } from "../../utils/types/cat";
 import Image from "next/image";
@@ -16,6 +22,9 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  name: {
+    width: 100,
+  },
 });
 
 export const CartItem = ({ cat }: CartItemProps) => {
@@ -23,19 +32,25 @@ export const CartItem = ({ cat }: CartItemProps) => {
   const dispatch = useAppDispatch();
 
   return (
-    <Grid xs={12} item alignItems="center" container>
-      <Image src={cat.image} height={100} width={100} alt={cat.name} />
-      <div className={classes.catInfo}>
-        <Typography>{cat.name}</Typography>
-        <Typography>${cat.price}</Typography>
-        <Button
-          onClick={() => {
-            dispatch(removeCat(cat));
-          }}
-        >
-          Remove
-        </Button>
-      </div>
+    <Grid xs={12} item container>
+      <Grid item xs={6} container justifyContent="center">
+        <Image src={cat.image} height={100} width={100} alt={cat.name} />
+      </Grid>
+      <Grid item xs={6}>
+        <div className={classes.catInfo}>
+          <Tooltip title={cat.name}>
+            <Typography noWrap>{cat.name}</Typography>
+          </Tooltip>
+          <Typography>${cat.price}</Typography>
+          <Button
+            onClick={() => {
+              dispatch(removeCat(cat));
+            }}
+          >
+            Remove
+          </Button>
+        </div>
+      </Grid>
     </Grid>
   );
 };
