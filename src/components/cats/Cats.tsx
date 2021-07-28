@@ -10,6 +10,7 @@ interface CatsProps {
 const useStyles = makeStyles({
   root: {
     margin: 2,
+    width: "100%",
   },
 });
 

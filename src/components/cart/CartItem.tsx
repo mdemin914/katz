@@ -1,6 +1,8 @@
 import {
   Button,
   Grid,
+  Hidden,
+  IconButton,
   makeStyles,
   Tooltip,
   Typography,
@@ -10,6 +12,7 @@ import { CatType } from "../../utils/types/cat";
 import Image from "next/image";
 import { useAppDispatch } from "../../utils/redux/hooks";
 import { removeCat } from "../../utils/redux/slices/appSlice";
+import { DeleteOutline } from "@material-ui/icons";
 
 interface CartItemProps {
   cat: CatType;
@@ -28,28 +31,43 @@ const useStyles = makeStyles({
 });
 
 export const CartItem = ({ cat }: CartItemProps) => {
-  const classes = useStyles();
   const dispatch = useAppDispatch();
 
   return (
-    <Grid xs={12} item container>
-      <Grid item xs={6} container justifyContent="center">
-        <Image src={cat.image} height={100} width={100} alt={cat.name} />
+    <Grid
+      container
+      spacing={1}
+      direction="row"
+      alignItems="center"
+      justifyContent="space-between"
+    >
+      <Hidden xsDown>
+        <Grid item xs={4} sm={4}>
+          <Image
+            src={cat.image}
+            width="100px"
+            height="100px"
+            layout="responsive"
+          />
+        </Grid>
+      </Hidden>
+      <Grid item xs={5} sm={4}>
+        <Tooltip title={cat.name}>
+          <Typography variant="body2">{cat.name}</Typography>
+        </Tooltip>
       </Grid>
-      <Grid item xs={6}>
-        <div className={classes.catInfo}>
-          <Tooltip title={cat.name}>
-            <Typography noWrap>{cat.name}</Typography>
-          </Tooltip>
-          <Typography>${cat.price}</Typography>
-          <Button
-            onClick={() => {
-              dispatch(removeCat(cat));
-            }}
-          >
-            Remove
-          </Button>
-        </div>
+      <Grid item xs={5} sm={3}>
+        <Typography variant="body2">${cat.price}</Typography>
+      </Grid>
+      <Grid item xs={2} sm={1}>
+        <IconButton
+          size="small"
+          onClick={() => {
+            dispatch(removeCat(cat));
+          }}
+        >
+          <DeleteOutline />
+        </IconButton>
       </Grid>
     </Grid>
   );

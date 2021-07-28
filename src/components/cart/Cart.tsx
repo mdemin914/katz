@@ -15,19 +15,9 @@ import {
 import { CartItem } from "./CartItem";
 import { formatCurrency } from "../../utils/numbers";
 
-const useStyles = makeStyles({
-  root: {
-    width: "100%",
-  },
-  total: {
-    marginLeft: 78,
-  },
-});
-
 export const Cart = () => {
   const { cats, isCartVisible } = useAppSelector((state) => state.app);
   const dispatch = useAppDispatch();
-  const classes = useStyles();
 
   const total = cats.reduce((acc, cat) => {
     acc += Number(cat.price);
@@ -43,15 +33,14 @@ export const Cart = () => {
       open={isCartVisible}
       onClose={handleClose}
       aria-labelledby="shopping-cart"
-      className={classes.root}
     >
       <DialogTitle>Your Future Cats</DialogTitle>
-      <DialogContent className={classes.root}>
+      <DialogContent>
         <ShoppingCartBody />
       </DialogContent>
 
       <DialogActions>
-        <Typography>
+        <Typography variant="body2">
           <Hidden xsDown>Total:</Hidden> {formatCurrency(total)}
         </Typography>
         <Button
@@ -79,7 +68,7 @@ export const Cart = () => {
 const ShoppingCartBody = () => {
   const cats = useAppSelector((state) => state.app.cats);
   return (
-    <Grid container spacing={2} item xs={12}>
+    <Grid container>
       {cats.map((c) => (
         <CartItem key={c.id} cat={c} />
       ))}

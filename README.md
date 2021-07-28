@@ -23,6 +23,7 @@ yarn start
 - NextJS - react/typescript framework
 - Material UI - styles
 - Redux (Toolkit) - state management
+- react-query - data fetching and caching
 
 ## Features
 
@@ -48,7 +49,7 @@ yarn start
 
 ## Testing
 
-I am a fan of end to end testing using a tool like Cypress.io, its a JS based solution that is a better version of Selenium. I would write a few positive and negative test cases that would cover the basic flows of the application. I would setup the deployment pipleline to run the test suite on a merge request into the production / staging branches and not deploy the app if any (or an acceptable percentage of test fail, sometimes tests are flaky and are false positives).
+I am a fan of end to end testing using a tool like Cypress.io, its a JS based solution that is a better version of Selenium. I would write a few test cases that would cover the basic flows of the application. I would setup the deployment pipleline to run the test suite on a merge request into the production / staging branches and not deploy the app if any (or an acceptable percentage of test fail, sometimes tests are flaky and are false positives).
 
 For this app I would test the following:
 
@@ -62,7 +63,7 @@ As the application grows, having end to end test makes refactoring easier and as
 
 ## More Filtering
 
-If we wanted to implement more filtering in the `/api/cats/filter` endpoint, we would need to defined what else we would want to filter on. Given the data other things that we can filter on would be
+If we wanted to implement more filtering in the `/api/cats/filter` endpoint, we would need to defined what else we would want to filter on. Given the data, other things that we can filter on would be
 
 - Name
   - It would be similar to the LTE / GTE filter but you would check if the lower cased name

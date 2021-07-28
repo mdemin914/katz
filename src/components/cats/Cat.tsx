@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { CatType } from "../../utils/types/cat";
 import { useAppSelector, useAppDispatch } from "../../utils/redux/hooks";
-import { addCat } from "../../utils/redux/slices/appSlice";
+import { addCat, removeCat } from "../../utils/redux/slices/appSlice";
 
 interface CatProps {
   cat: CatType;
@@ -32,7 +32,8 @@ export const Cat = ({ cat }: CatProps) => {
   const cats = useAppSelector((state) => state.app.cats);
   const dispatch = useAppDispatch();
 
-  const isCatInCart = cats.find((c) => c.id === cat.id);
+  const isCatInCart =
+    cats.find((c) => c.id === cat.id) === undefined ? true : false;
 
   return (
     <Grid item xs={12} sm={4} container justifyContent="center">
@@ -56,8 +57,19 @@ export const Cat = ({ cat }: CatProps) => {
           <Button
             size="small"
             color="primary"
+            variant="outlined"
+            disabled={isCatInCart}
+            onClick={() => {
+              dispatch(removeCat(cat));
+            }}
+          >
+            Remove
+          </Button>
+          <Button
+            size="small"
+            color="primary"
             variant="contained"
-            disabled={!!isCatInCart}
+            disabled={!isCatInCart}
             onClick={() => {
               dispatch(addCat(cat));
             }}
