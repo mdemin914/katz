@@ -42,7 +42,7 @@ export const CartItem = ({ cat }: CartItemProps) => {
       justifyContent="space-between"
     >
       <Hidden xsDown>
-        <Grid item xs={4} sm={4}>
+        <Grid item sm={3}>
           <Image
             src={cat.image}
             width="100px"
