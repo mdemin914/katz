@@ -1,9 +1,7 @@
 import {
-  Button,
   Grid,
   Hidden,
   IconButton,
-  makeStyles,
   Tooltip,
   Typography,
 } from "@material-ui/core";
@@ -17,18 +15,6 @@ import { DeleteOutline } from "@material-ui/icons";
 interface CartItemProps {
   cat: CatType;
 }
-
-const useStyles = makeStyles({
-  catInfo: {
-    marginLeft: 16,
-  },
-  media: {
-    height: 140,
-  },
-  name: {
-    width: 100,
-  },
-});
 
 export const CartItem = ({ cat }: CartItemProps) => {
   const dispatch = useAppDispatch();

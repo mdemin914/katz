@@ -9,7 +9,6 @@ import {
   DialogTitle,
   Grid,
   Hidden,
-  makeStyles,
   Typography,
 } from "@material-ui/core";
 import { CartItem } from "./CartItem";
