@@ -8,6 +8,7 @@ import {
   DialogContent,
   DialogTitle,
   Grid,
+  Hidden,
   makeStyles,
   Typography,
 } from "@material-ui/core";
@@ -50,7 +51,9 @@ export const Cart = () => {
       </DialogContent>
 
       <DialogActions>
-        <Typography>Total: {formatCurrency(total)}</Typography>
+        <Typography>
+          <Hidden xsDown>Total:</Hidden> {formatCurrency(total)}
+        </Typography>
         <Button
           variant="outlined"
           disabled={cats.length === 0}
