@@ -57,7 +57,7 @@ export const Cart = () => {
             dispatch(clearCart());
           }}
         >
-          Clear Cart
+          Clear
         </Button>
         <Button
           onClick={handleClose}
